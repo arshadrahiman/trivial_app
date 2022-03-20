@@ -6,51 +6,36 @@ class Screen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Container(
-        width: double.infinity,
+      body:SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
-              'TRIVIA APP',
-              style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-            Text('Your Score Is',style: TextStyle(fontSize:30,fontWeight: FontWeight.bold)),
-            SizedBox(height: 10,),
-            Text('$score/100',style: TextStyle(fontSize:40,fontWeight: FontWeight.bold)),
-            SizedBox(height: 10,),
-                        
-              // Directionality(
-              // textDirection: TextDirection.rtl,
-              // child: ),
-              // child:ElevatedButton(onPressed: () => Navigator.of(context).pop(),);
-              // ElevatedButton.icon(
-              //   onPressed: () => Navigator.of(context).pop(),
-              //  ),
-              //   icon: Icon(
-              //     Icons.arrow_back,
-              //     color: Colors.black,
-              //  ),
-              //   label: Text(
-              //     'RETAKE TRIVIA',
-              //     style: TextStyle(
-              //       color: Colors.blue,
-              //       fontSize: 20,
-              //       fontWeight: FontWeight.bold,
-              //     ),
-              //   ),
-          ],
-          
-        ),
-        
+              const SizedBox(
+                    height: 120,
+                    child: Center(
+                      child: Text(
+                        'TRIVIA APP',
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                      ),),
+            const SizedBox(height: 120,),
+            const Text('Your Score Is',style: TextStyle(fontSize:30,fontWeight: FontWeight.bold)),
+            const SizedBox(height: 50,),
+            Text('$score/100',style:const TextStyle(fontSize:40,fontWeight: FontWeight.bold)),
+            const SizedBox(height: 120,),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).pop(),
+               child: const Text('RETAKE TRIVIA',style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blue),)
+            )],
       ),
-      
-      
-    );
+    ),);
   }
 }
 
+     

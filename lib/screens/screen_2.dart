@@ -42,27 +42,42 @@ class _Screen2State extends State<Screen2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: isInit
               ? [
-                  const Text(
-                    'TRIVIA APP',
-                    style: TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                  const SizedBox(
+                    height: 120,
+                    child: Center(
+                      child: Text(
+                        'TRIVIA APP',
+                        style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black),
+                      ),
+                    ),
                   ),
-                  Text(
-                    "Question ${index + 1}",
-                    style: const TextStyle(fontSize: 20, color: Colors.blue),
-                    textAlign: TextAlign.left,
+                  Padding(
+                    padding: const EdgeInsets.all(30.0),
+                    child: Text(
+                      "Question ${index + 1}",
+                      style: const TextStyle(fontSize: 20, color: Colors.blue),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30.0),
                     child: Text(respons.results[index].question),
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.all(30.0),
+                    child: Text(
+                      "Choices",
+                      style: TextStyle(fontSize: 20, color: Colors.blue),
+                      textAlign: TextAlign.left,
+                    ),
                   ),
                   Column(
                     children: answers.map((e) {
@@ -79,11 +94,12 @@ class _Screen2State extends State<Screen2> {
                               });
                             },
                           ),
-                          Flexible(child: Text(
-                            e,
-                            style: const TextStyle(color: Colors.blue),
-                          ),)
-
+                          Flexible(
+                            child: Text(
+                              e,
+                              style: const TextStyle(),
+                            ),
+                          )
                         ],
                       );
                     }).toList(),
@@ -122,7 +138,7 @@ class _Screen2State extends State<Screen2> {
 
   void next() async {
     if (selectedAnser == respons.results[index].correctAnswer) {
-      score++;
+      score+=10;
     }
     print(index);
 
